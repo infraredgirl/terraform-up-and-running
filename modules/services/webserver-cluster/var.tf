@@ -42,3 +42,8 @@ variable "enable_autoscaling" {
   description = "If set to true, enable autoscaling"
   type        = bool
 }
+
+variable "enable_new_user_data" {
+  description = "If set to true, user the new User Data script"
+  type        = bool
+}
