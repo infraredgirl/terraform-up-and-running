@@ -5,6 +5,9 @@ provider "aws" {
 module "webserver_cluster" {
   source = "../../../modules/services/webserver-cluster"
 
+  ami         = "ami-0c55b159cbfafe1f0"
+  server_text = "New server text"
+
   cluster_name           = "webservers-stage"
   db_remote_state_bucket = "terraform-up-and-running-state-123"
   db_remote_state_key    = "stage/data-stores/mysql/terraform.tfstate"
@@ -12,7 +15,6 @@ module "webserver_cluster" {
   min_size               = 2
   max_size               = 2
   enable_autoscaling     = false
-  enable_new_user_data   = true
 }
 
 resource "aws_security_group_rule" "allow_testing_inbound" {
